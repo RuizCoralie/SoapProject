@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
+using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json.Serialization;
 
 namespace AppMobileSMR
 {
@@ -9,9 +12,15 @@ namespace AppMobileSMR
     {
         public static void Register(HttpConfiguration config)
         {
-            // Configuration et services API Web
+            // Configuration et services Web API
+            // Configurez Web API pour utiliser uniquement l’authentification par jeton de support.
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-            // Itinéraires de l'API Web
+            // Utilisez la casse mixte pour les données JSON.
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            // Routes Web API
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

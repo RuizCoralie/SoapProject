@@ -229,10 +229,11 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\back.png" />
     <Content Include="Images\camion.png" />
     <Content Include="Images\logout.png" />
+    <Content Include="Images\ok.png" />
     <Content Include="Images\outils.png" />
-    <Content Include="Images\back.png" />
     <Content Include="Images\smr.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

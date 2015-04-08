@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWebSMR", "AppWebSMR\AppW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceMobileSMR", "WebServiceMobileSMR\WebServiceMobileSMR.csproj", "{D4B53FAA-59B9-4533-A463-F73F5304494F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceWebSMR", "WebServiceWebSMR\WebServiceWebSMR.csproj", "{8193CBEA-AE96-4777-854F-9C333A807217}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D4B53FAA-59B9-4533-A463-F73F5304494F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B53FAA-59B9-4533-A463-F73F5304494F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B53FAA-59B9-4533-A463-F73F5304494F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8193CBEA-AE96-4777-854F-9C333A807217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8193CBEA-AE96-4777-854F-9C333A807217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8193CBEA-AE96-4777-854F-9C333A807217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8193CBEA-AE96-4777-854F-9C333A807217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

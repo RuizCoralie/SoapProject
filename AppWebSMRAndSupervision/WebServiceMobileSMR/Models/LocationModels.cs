@@ -2,6 +2,7 @@
 
 namespace WebServiceMobileSMR.Models
 {
+    [Serializable]
     public class LocationModels
     {
         private string _Email;

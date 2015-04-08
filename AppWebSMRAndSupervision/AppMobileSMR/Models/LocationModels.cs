@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebServiceWebSMR.Models
+namespace AppMobileSMR.Models
 {
     [Serializable]
     public class LocationModels

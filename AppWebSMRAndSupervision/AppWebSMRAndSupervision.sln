@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWebSMRAndSupervision", "AppWebSMRAndSupervision\AppWebSMRAndSupervision.csproj", "{6AEDCC1B-A090-4626-A2DD-3DD99B721CE0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMobileSMR", "AppMobileSMR\AppMobileSMR.csproj", "{C4F671DC-2872-4022-871C-07CE05C52A6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWebSMR", "AppWebSMR\AppWebSMR.csproj", "{BBBB216F-DC89-451A-AE6F-3D65D9C2613C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6AEDCC1B-A090-4626-A2DD-3DD99B721CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AEDCC1B-A090-4626-A2DD-3DD99B721CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AEDCC1B-A090-4626-A2DD-3DD99B721CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AEDCC1B-A090-4626-A2DD-3DD99B721CE0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4F671DC-2872-4022-871C-07CE05C52A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4F671DC-2872-4022-871C-07CE05C52A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4F671DC-2872-4022-871C-07CE05C52A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4F671DC-2872-4022-871C-07CE05C52A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBBB216F-DC89-451A-AE6F-3D65D9C2613C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBBB216F-DC89-451A-AE6F-3D65D9C2613C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBBB216F-DC89-451A-AE6F-3D65D9C2613C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBBB216F-DC89-451A-AE6F-3D65D9C2613C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

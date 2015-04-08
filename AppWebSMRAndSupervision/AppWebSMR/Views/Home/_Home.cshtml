@@ -1,8 +1,136 @@
-﻿
+﻿<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAckKZXwPzcMbYpH39RnhadJIQtF0u-lsE&sensor=false">
+</script>
+<script type="text/javascript">
+    var bordeaux = new google.maps.LatLng(44.8398257, -0.5683834);
+    var map = null;
+    var latitude = null;
+    var longitude = null;
+    var markers = [];
+    var markerSearch = null;
+    var boundsGlob = null;
+
+    function initialize() {
+        var mapProp = {
+            center: bordeaux,
+            zoom: 13,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                position: google.maps.ControlPosition.TOP_CENTER
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
+
+        /* Propriété du Cercle pour le radius*/
+        circle = new google.maps.Circle({
+            map: map,
+            clickable: false,
+            // metres
+            radius: 10000,
+            //fillColor: '#fff',
+            fillOpacity: 0,
+            strokeColor: '#313131',
+            strokeOpacity: .6,
+            strokeWeight: .8
+        });
+
+
+        // création d'un point de base pour le radius de bordeaux
+        var point = new google.maps.LatLng(44.8637279, -0.586141);
+
+        boundsGlob = createCircle(point);
+
+        //afficheMarker(map);
+    }
+
+    /* AFFICHE MARKER */
+    function afficheMarker(map) {
+        @*@foreach (var item in Model)
+        {
+            if(item.is_premium)
+            {
+                <text>
+        lati = '@item.Adresse.latitude';
+        long = '@item.Adresse.longitude';
+        var point = new google.maps.LatLng(lati, long);
+
+        addMarker(map, '@item.Adresse.adresse1', point, '@item.titre');
+        </text>
+            }
+            else
+            {
+                <text>
+        lati = '@item.Adresse.latitude';
+        long = '@item.Adresse.longitude';
+        var point = new google.maps.LatLng(lati, long);
+
+        addMarker(map, '@item.Adresse.adresse1', point, '@item.titre');
+        </text>
+            }
+        }*@
+    }
+
+    /* ADD MARKER */
+    function addMarker(map, address, Location, titreMarker) {
+
+        if (boundsGlob.contains(Location)) {
+            var marker = new google.maps.Marker({
+                position: Location,
+                map: map,
+                title: titreMarker,
+            });
+
+            markers.push(marker);
+
+            marker.setMap(map);
+            var infowindow = new google.maps.InfoWindow({
+                content: address
+            });
+
+            new google.maps.event.addListener(marker, "click", function () {
+                map.setZoom(16);
+                map.setCenter(marker.getPosition());
+                infowindow.open(map, marker);
+            });
+        }
+    }
+
+    function setAllMap(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+
+    function centerMap(map, coords, zoom) {
+        map.panTo(coords);
+        map.setZoom(zoom);
+    }
+
+    function createCircle(coords) {
+        var markerPos = new google.maps.Marker({
+            position: coords,
+            map: map
+        });
+        markerPos.setVisible(false);
+        markers.push(markerPos);
+        circle.bindTo('center', markerPos, 'position');
+
+        var bounds = circle.getBounds();
+
+        return bounds;
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
 <div class="row" style="margin-top:2%;">
     <div class="col-lg-12">
         <h2>Tableau de bord</h2>
         <br/>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11313.38058289241!2d-0.5729947193115235!3d44.85526794826304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1428071347436" width="100%" height="500" frameborder="0" style="border:0"></iframe>
+        <div id="map-canvas"></div>
     </div>
 </div>

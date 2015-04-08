@@ -23,10 +23,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index" , "Home" , new { area="" }, null)</li>
-                        <li>@Html.ActionLink("Client", "Index", "Client", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("Notification", "Index", "Notification", new { area = "" }, null)</li>
-                        @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>*@
-</ul>
+                    <li>@Html.ActionLink("Client", "Index", "Client", new { area = "" }, null)</li>
+                    @*<li>@Html.ActionLink("Notification", "Index", "Notification", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>*@
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

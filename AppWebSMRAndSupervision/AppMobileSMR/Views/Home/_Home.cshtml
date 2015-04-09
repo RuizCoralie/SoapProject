@@ -1,22 +1,41 @@
 ﻿<!-- ko with: home -->
  <script type="text/javascript">
-    function show_map(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        //document.write("Lat : "+latitude);
-        //document.write("Long : "+longitude);
-    }
+    var lat = null;
+    var long = null;
 
-    window.navigator.geolocation.getCurrentPosition(show_map);
+    function show_map(position) {
+         lat = position.coords.latitude;
+         long = position.coords.longitude;
+
+        @*@ViewBag.latitude = latitude;
+        @ViewBag.longitude = longitude;*@     
+        
+        //document.write("Lat : "+ lat);
+        //document.write("Long : " + long);
+    }
+     window.navigator.geolocation.getCurrentPosition(show_map);
+
+     $(function(){
+         $('input[name="btnLink"]').click(function(){
+             $.get('@Url.Action("PostLocation", "Home")', { latitute: lat, longitute: long }); 
+         });
+     });
+
+     function Save(){
+         $.get('@Url.Action("PostLocation", "Home")', { latitute: lat, longitute: long }); 
+     };
+
+    
 </script> 
 
 <div class="row">
     <center>
         <br />
         <br />
-        <button type="button" class="btn btn-default btn-lg" style="width: 80%; margin-left: 10%; margin-right: 10%;">
-            @Html.ActionLink("Envoyer ma position", "PostLocation", "Home", new { latitute = "", longitute="" }, null)
-        </button>
+        <input type="button" name="btnLink" value="Envoyer ma position" onclick="Save()" class="btn btn-default btn-lg" style="width: 80%; margin-left: 10%; margin-right: 10%;" />
+        @*<button type="button" class="btn btn-default btn-lg" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+            @Html.ActionLink("Envoyer ma position", "PostLocation", "Home", new { latitute = @ViewBag.latitude, longitute = @ViewBag.longitude }, null)
+        </button>*@
         <br />
         <br />
         <button type="button" class="btn btn-danger btn-lg" style="width: 80%; margin-left: 10%; margin-right: 10%;">

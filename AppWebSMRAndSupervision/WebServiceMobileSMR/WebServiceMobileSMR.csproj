@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -203,6 +204,27 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Entity\Conducteur.cs">
+      <DependentUpon>LocationsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Coordonnee.cs">
+      <DependentUpon>LocationsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LocationsEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocationsEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LocationsEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocationsEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LocationsEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocationsEntity.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -244,6 +266,23 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Entity\LocationsEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LocationsEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\LocationsEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LocationsEntity.edmx</DependentUpon>
+      <LastGenOutput>LocationsEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\LocationsEntity.edmx.diagram">
+      <DependentUpon>LocationsEntity.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entity\LocationsEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LocationsEntity.edmx</DependentUpon>
+      <LastGenOutput>LocationsEntity.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -281,6 +320,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

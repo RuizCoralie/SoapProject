@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SoapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Conducteur">
+          <Key>
+            <PropertyRef Name="Cdr_Id" />
+          </Key>
+          <Property Name="Cdr_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cdr_adresseMail" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coordonnees">
+          <Key>
+            <PropertyRef Name="Coo_Id" />
+          </Key>
+          <Property Name="Coo_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Coo_Date" Type="datetime" Nullable="false" />
+          <Property Name="Coo_Long" Type="bigint" Nullable="false" />
+          <Property Name="Coo_Lat" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SoapModelStoreContainer">
+          <EntitySet Name="Conducteur" EntityType="Self.Conducteur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coordonnees" EntityType="Self.Coordonnees" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SoapModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Conducteur">
+          <Key>
+            <PropertyRef Name="Cdr_Id" />
+          </Key>
+          <Property Name="Cdr_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cdr_adresseMail" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coordonnee">
+          <Key>
+            <PropertyRef Name="Coo_Id" />
+          </Key>
+          <Property Name="Coo_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Coo_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Coo_Long" Type="Int64" Nullable="false" />
+          <Property Name="Coo_Lat" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SoapEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Conducteurs" EntityType="Self.Conducteur" />
+          <EntitySet Name="Coordonnees" EntityType="Self.Coordonnee" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SoapModelStoreContainer" CdmEntityContainer="SoapEntities">
+          <EntitySetMapping Name="Conducteurs">
+            <EntityTypeMapping TypeName="SoapModel.Conducteur">
+              <MappingFragment StoreEntitySet="Conducteur">
+                <ScalarProperty Name="Cdr_Id" ColumnName="Cdr_Id" />
+                <ScalarProperty Name="Cdr_adresseMail" ColumnName="Cdr_adresseMail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coordonnees">
+            <EntityTypeMapping TypeName="SoapModel.Coordonnee">
+              <MappingFragment StoreEntitySet="Coordonnees">
+                <ScalarProperty Name="Coo_Id" ColumnName="Coo_Id" />
+                <ScalarProperty Name="Coo_Date" ColumnName="Coo_Date" />
+                <ScalarProperty Name="Coo_Long" ColumnName="Coo_Long" />
+                <ScalarProperty Name="Coo_Lat" ColumnName="Coo_Lat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

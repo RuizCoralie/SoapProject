@@ -12,10 +12,12 @@ namespace AppWebSMR.WebApi
         public static IEnumerable<LocationModels> GetLocations()
         {
             var locations = new List<LocationModels>();
-            WebClient wc = new WebClient();
-            string json = wc.DownloadString(string.Concat(_UrlWebAPi, "/api/Location"));
+            using (WebClient wc = new WebClient())
+            {
+                string json = wc.DownloadString(string.Concat(_UrlWebAPi, "/api/Location"));
 
-            locations = JsonConvert.DeserializeObject<List<LocationModels>>(json);
+                locations = JsonConvert.DeserializeObject<List<LocationModels>>(json);
+            }
 
             return locations;
         }

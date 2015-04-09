@@ -1,6 +1,5 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System;
 using System.Collections.Generic;
 using System.Web.Http;
 using WebServiceWebSMR.Helper;
@@ -33,7 +32,7 @@ namespace WebServiceWebSMR.Controllers
                         LocationModels location = SerialisationHelper.DeserialisationLocation(body);
                         locations.Add(location);
 
-                        Console.WriteLine(" [x] Received {0}", location);
+                        //Console.WriteLine(" [x] Received {0}", location);
                         channel.BasicAck(ea.DeliveryTag, false);
                     }
 

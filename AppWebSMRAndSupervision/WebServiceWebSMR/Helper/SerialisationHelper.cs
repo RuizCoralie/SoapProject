@@ -8,11 +8,21 @@ namespace WebServiceWebSMR.Helper
     {
         public static LocationModels DeserialisationLocation(byte[] byteArray)
         {
+            var location = new LocationModels();
             using (var stream = new MemoryStream(byteArray))
             {
                 var bf = new BinaryFormatter();
-                return (LocationModels)bf.Deserialize(stream);
+                try
+                {
+                    location = (LocationModels)bf.Deserialize(stream);
+                }
+                catch (System.Exception ex)
+                {
+
+                    throw ex;
+                }
             }
+            return location;
         }
 
         public static byte[] SerialisationLocation(LocationModels location)

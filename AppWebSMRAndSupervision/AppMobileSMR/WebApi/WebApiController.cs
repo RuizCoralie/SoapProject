@@ -24,7 +24,7 @@ namespace AppMobileSMR.WebApi
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 //Envois des données
-                HttpResponseMessage reponse = await client.PutAsJsonAsync<LocationModels>("api/Location", location);
+                HttpResponseMessage reponse = await client.PostAsJsonAsync<LocationModels>("api/Location", location);
                 if (reponse.IsSuccessStatusCode) { Console.WriteLine("location : " + location); }
             }
         }
